@@ -5,10 +5,12 @@ const User=require("./models/user")
 app.use(express.json())
 require('dotenv').config();
 const authRouter=require('./routes/auth');
-
+const profileRouter=require('./routes/profile')
+const cookieParser=require("cookie-parser")
+app.use(cookieParser())
 
 app.use("/",authRouter)
-
+app.use("/",profileRouter)
 
     
 

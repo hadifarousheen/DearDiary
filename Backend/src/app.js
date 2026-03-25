@@ -4,25 +4,20 @@ const connectDB=require("./config/database")
 const User=require("./models/user")
 app.use(express.json())
 require('dotenv').config();
+const authRouter=require('./routes/auth');
 
-app.post("/signup",async(req,res)=>{
-    console.log(req.body)
-    const userObj={
-        firstName:"Hadifa",
-        lastName:"Rousheen",
-        email:"hadifarousheen2644@gmail.com"
-    }
-    const user= new User(req.body)
-    try{
-        await user.save();
-        res.send("User Added")
-    }catch(err){
-        console.log("error")
-    }
 
-})
+app.use("/",authRouter)
 
-   
+
+    
+
+
+
+
+
+
+
 
 
 
